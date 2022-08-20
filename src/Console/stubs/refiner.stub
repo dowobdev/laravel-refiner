@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ namespace }};
+
+use Dowob\Refiner\Definitions\Definition;
+use Dowob\Refiner\Refiner;
+
+class {{ class }} extends Refiner
+{
+    public function definitions(): array
+    {
+        return [
+            // Add your Definitions here
+        ];
+    }
+
+    public function defaultSorts(): array
+    {
+        return [
+            // Specify any default sorts here, in format of: `['name', 'asc or desc'],`
+        ];
+    }
+}

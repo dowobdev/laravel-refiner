@@ -1,0 +1,50 @@
+{
+    "name": "bwndev/laravel-refiner",
+    "description": "Refine Laravel Eloquent queries from request data according to the refinement you choose.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Dowob\\Refiner\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Dowob\\Refiner\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "David Bowen"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "illuminate/database": "^9.0",
+        "illuminate/http": "^9.0",
+        "illuminate/validation": "^9.0",
+        "illuminate/support": "^9.0",
+        "spatie/laravel-package-tools": "^1.12"
+    },
+    "require-dev": {
+        "laravel/framework": "^9.0",
+        "nunomaduro/larastan": "^2.1",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.20"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dowob\\Refiner\\RefinerServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
