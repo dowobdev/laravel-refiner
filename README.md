@@ -15,8 +15,8 @@ Run the following to install the package with composer:
 composer require dowob/laravel-refiner
 ```
 
-Some minimal configuration options are available if you wish to publish the configuration file. The service provide
-should be registered automatically within Laravel.
+Some minimal configuration options are available if you wish to publish the configuration file. The service provider
+will be registered automatically within Laravel.
 
 ```bash
 php artisan vendor:publish --provider="Dowob\Refiner\RefinerServiceProvider" --tag="refiner-config"
@@ -49,11 +49,13 @@ pagination etc.).
 
 The `refine()` method has two optional arguments:
 
-1. `?\Dowob\Refiner\Refiner $refiner = null` - if specified, this is the refiner instance you want to use for this
+1. `?\Dowob\Refiner\Refiner $refiner = null`  
+   if specified, this is the refiner instance you want to use for this
    refinement. If not specified, it will be automatically determined from the model name and the configured refiner
    namespace (defaults to `\App\Refiners`). For example, the guessed refiner `Post` would be `\App\Refiners\PostRefiner`
    .
-2. `?\Illuminate\Http\Request $request = null` - if specified, this will be used as the request object to retrieve
+2. `?\Illuminate\Http\Request $request = null`  
+   if specified, this will be used as the request object to retrieve
    query parameters from. Otherwise, we'll use the current request to retrieve the parameters.
 
 ## Refiners
@@ -74,11 +76,14 @@ Generate a refiner using the artisan command `php artisan make:refiner NameOfYou
 
 ## Definitions
 
-To make use of a refiner, you'll want to add one or more Definitions to it in the `definitions()` method. Each
+To make use of a refiner, you'll want to add one or more definitions to it in the `definitions()` method. Each
 definition must have a `name` (passed in the `make` method), but everything else is optional. The `name` is how the
-definition matches up to the request, for example a definition with a name of `email` would be triggered by a
+definition matches up to the request[^1], for example a definition with a name of `email` would be triggered by a
 request like: `?search[email]=value`. The `name` will also be used for the query column, unless you define a
 different column through `column()`.
+
+[^1]: Unless you use validation rules that cover multiple fields, then those field names will be used instead of the
+definition name.
 
 You must opt the Definition into search and/or sorting, which is done by calling one of the `search*` methods or the
 `sort` method.
@@ -86,7 +91,7 @@ You must opt the Definition into search and/or sorting, which is done by calling
 You can specify [validation](#validation) rules for each definition which allows further complexity in how your
 definitions work.
 
-Examples of definitions:
+Examples of definitions being defined within a refiner:
 
 ```php
 use \Dowob\Refiner\Definitions\Definition;
