@@ -1,5 +1,5 @@
 {
-    "name": "bwndev/laravel-refiner",
+    "name": "dowob/laravel-refiner",
     "description": "Refine Laravel Eloquent queries from request data according to the refinement you choose.",
     "type": "library",
     "license": "MIT",
