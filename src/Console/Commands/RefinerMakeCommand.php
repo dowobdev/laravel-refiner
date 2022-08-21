@@ -28,7 +28,7 @@ class RefinerMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__ . '/../subs/refiner.stub';
+        return __DIR__ . '/../stubs/refiner.stub';
     }
 
     /**
