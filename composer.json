@@ -20,16 +20,16 @@
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/database": "^9.0",
-        "illuminate/http": "^9.0",
-        "illuminate/validation": "^9.0",
-        "illuminate/support": "^9.0",
+        "illuminate/database": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "illuminate/validation": "^9.0|^10.0",
+        "illuminate/support": "^9.0|^10.0",
         "spatie/laravel-package-tools": "^1.12"
     },
     "require-dev": {
-        "laravel/framework": "^9.0",
+        "laravel/framework": "^9.0|^10.0",
         "nunomaduro/larastan": "^2.1",
-        "orchestra/testbench": "^7.0",
+        "orchestra/testbench": "^7.0|^8.0",
         "pestphp/pest": "^1.20"
     },
     "config": {
