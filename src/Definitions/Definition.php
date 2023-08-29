@@ -33,6 +33,8 @@ class Definition
      */
     private array $searchParameters = [];
 
+    private bool $searchTrim = true;
+
     private bool $sort = false;
 
     private array $validationRules = [];
@@ -151,6 +153,20 @@ class Definition
     }
 
     /**
+     * (Search) Toggle whether this search definition will trim the input
+     * when passed to the search query. This is enabled by default.
+     *
+     * @param bool $enable
+     * @return $this
+     */
+    public function trim(bool $enable = true): static
+    {
+        $this->searchTrim = $enable;
+
+        return $this;
+    }
+
+    /**
      * @param string|array $rules
      * @return $this
      */
@@ -205,6 +221,11 @@ class Definition
     public function canSort(): bool
     {
         return $this->sort;
+    }
+
+    public function shouldTrimSearch(): bool
+    {
+        return $this->searchTrim;
     }
 
     /**

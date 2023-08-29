@@ -103,8 +103,11 @@ use \Illuminate\Support\Facades\DB;
 public function definitions(): array
 {
     return [
-        // This allows exact (column = value) matching for `name` and enables sorting
+        // This allows exact (column = value) matching for `name` and enables sorting.
+        // Note that any search that is a string will be trimmed by default.
         Definition::make('name')->search()->sort(),
+        // You can disable trimming per-definition with trim(false)
+        Definition::make('non-trimmed-name')->search()->trim(false),
         // This allows LIKE matching without sorting. By default, LIKE sorting will use Like::BOTH however,
         // you can override this by passing a Like::* value as the first parameter as shown in 2nd example.
         Definition::make('email')->searchLike(), // LIKE %value%

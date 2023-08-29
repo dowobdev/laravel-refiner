@@ -15,6 +15,7 @@ class TestModelRefiner extends Refiner
         return [
             Definition::make('user')->searchIn()->column('id'),
             Definition::make('name')->search()->sort(),
+            Definition::make('name-no-trim')->search()->trim(false)->sort(),
             Definition::make('created')->sort()->column('created_at'),
 
             // Custom search options - not legitimate columns in test database

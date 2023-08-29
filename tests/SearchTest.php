@@ -69,6 +69,20 @@ test('can check if search is present and get the value for it', function () {
         ->and($refiner->getSearchValue('invalid'))->toBeNull();
 });
 
+test('search value is trimmed if trimming is enabled', function () {
+    TestModel::refine($refiner = new TestModelRefiner, createSearchRequest('name', '  Test  '));
+
+    expect($refiner->hasSearch('name'))->toBeTrue()
+        ->and($refiner->getSearchValue('name'))->toBe('Test');
+});
+
+test('search value is not trimmed if trimming is disabled', function () {
+    TestModel::refine($refiner = new TestModelRefiner, createSearchRequest('name-no-trim', '  Test  '));
+
+    expect($refiner->hasSearch('name-no-trim'))->toBeTrue()
+        ->and($refiner->getSearchValue('name-no-trim'))->toBe('  Test  ');
+});
+
 test('can specify custom validation rules', function () {
     TestModel::refine($refiner = new TestModelValidatedRefiner, createSearchRequest([
         'string1'      => 'test1',

@@ -123,6 +123,10 @@ class RefinedRequest
 
     private function validSearch(Definition $definition, mixed $value): Search
     {
+        if ($definition->shouldTrimSearch() && is_string($value)) {
+            $value = trim($value);
+        }
+
         return new Search($definition, $value);
     }
 
