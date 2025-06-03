@@ -249,7 +249,7 @@ class Definition
     }
 
     /**
-     * @return array<string, string>|array<string, array[]>>
+     * @return array<string, string>|array<string, array[]>
      */
     public function getValidationRules(): array
     {
