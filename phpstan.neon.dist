@@ -1,14 +1,16 @@
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/larastan/larastan/extension.neon
 parameters:
     paths:
         - src
     level: 8
     ignoreErrors:
-        - '#^Call to an undefined method Illuminate\\Support\\HigherOrderCollectionProxy\<string, Dowob\\Refiner\\[A-Za-z\\]+\|true\>\:\:name\(\)\.$#'
-        # These are all errors based on array type validations, resolve these in future.
+        - '#^Call to an undefined method Illuminate\\Support\\HigherOrderCollectionProxy\<.+Dowob\\Refiner\\.+\>\:\:name\(\)\.$#'
+        # These are all errors based on array/Collection type validations, resolve these in future.
         - '#return type has no value type specified in iterable type array\.$#'
         - '#has parameter \$[A-Za-z_]+ with no value type specified in iterable type array\.$#'
         - '#\$[A-Za-z_]+ type has no value type specified in iterable type array\.$#'
+        - '#with generic class Illuminate\\Support\\Collection (does not specify|but does not specify) its types: TKey, TValue$#'
         - '#^Unable to resolve the template type (TValue|TKey) in call to function collect#'
+        - '#^Trait Dowob\\Refiner\\Refinable is used zero times and is not analysed\.$#'
     excludePaths:

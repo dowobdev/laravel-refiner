@@ -9,8 +9,13 @@ use Illuminate\Contracts\Database\Query\Builder;
 class Sort
 {
     private Definition $definition;
+
+    /** @var 'asc'|'desc' */
     private string $direction;
 
+    /**
+     * @param 'asc'|'desc' $direction
+     */
     public function __construct(Definition $definition, string $direction)
     {
         $this->definition = $definition;
